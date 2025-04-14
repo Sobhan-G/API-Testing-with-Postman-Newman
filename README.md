@@ -1,54 +1,102 @@
- API Testing with Postman & Newman
+Detta projekt innehåller en uppsättning automatiserade API-tester för ett publikt REST API på [reqres.in](https://reqres.in). Tester är skapade med Postman och kan köras både manuellt i Postman eller automatiserat via Newman – en CLI-testrunner.
 
-Detta projekt innehåller automatiserade tester av ett REST API med hjälp av Postman och testrunnern Newman. Projektet simulerar autentisering, dataskapande och felscenarier.
+## 🎯 Syfte
 
-## ✅ Funktioner
-- Testsvit i Postman med flera scenarier
-- Körning via kommandorad med Newman
-- Validering av statuskoder, svarstider och innehåll
-- JSON-schema-validering
+Att visa förståelse för API-testning, felhantering och automatisering inom test/QA. Projektet simulerar verkliga användarflöden såsom inloggning, datahämtning, dataskapande och borttagning av resurser.
 
-## 🛠️ Verktyg & Tekniker
-- Postman
-- Newman (CLI-runner för Postman)
+## 🚀 Funktioner
+
+- ✅ Inloggning (med och utan lösenord)
+- 👥 Hämta användarlista
+- ➕ Skapa ny användare
+- 🗑️ Ta bort användare
+- 🔄 Validering av HTTP-statuskoder, JSON-respons och felhantering
+
+## 🧰 Använda verktyg
+
+- [Postman](https://www.postman.com/)
+- [Newman](https://www.npmjs.com/package/newman)
 - JavaScript (för testskript)
-- Mock-server eller externt API (ex. reqres.in eller jsonplaceholder.typicode.com)
+- reqres.in (mock API)
 
-## 📦 Kom igång
+## 📦 Projektstruktur
 
-1. **Installera Newman globalt**
+```
+API-Testing-with-Postman-Newman/
+├── README.md
+├── collections/
+│   └── QA-Demo.postman_collection.json
+├── environments/
+│   └── reqres-environment.postman_environment.json
+└── reports/
+    └── (kan läggas till via Newman CLI)
+```
+
+## 🛠️ Kom igång
+
+### 1. Klona projektet
+
+```bash
+git clone https://github.com/Sobhan-G/API-Testing-with-Postman-Newman.git
+cd API-Testing-with-Postman-Newman
+```
+
+### 2. Installera Newman
+
 ```bash
 npm install -g newman
 ```
 
-2. **Kör testsviten (exempel)**
+### 3. Kör testsviten
+
 ```bash
-newman run TestSvit.postman_collection.json
+newman run collections/Sobhan-QA-Demo.postman_collection.json \
+  -e environments/reqres-environment.postman_environment.json
 ```
 
-3. **Visa testresultat**
+### 4. Skapa HTML-rapport (valfritt)
+
 ```bash
-newman run TestSvit.postman_collection.json -r cli,html
+newman run collections/Sobhan-QA-Demo.postman_collection.json \
+  -e environments/reqres-environment.postman_environment.json \
+  -r cli,html --reporter-html-export reports/test-report.html
 ```
 
-## 📋 Testscenarier
-- `POST /login` – Testar korrekt och felaktig inloggning
-- `GET /users` – Verifierar att data returneras korrekt
-- `POST /users` – Skickar ny användare och validerar svar
-- `DELETE /users/:id` – Säkerställer att användaren tas bort
+## 🧪 Testfall
 
-## 🔍 Lärdomar
-- Skapa återanvändbara och datadrivna API-tester
-- Automatisera körningar för integration i CI/CD
-- Felsöka API-respons och validera olika typer av felhantering
+| Testnamn            | Endpoint             | Vad testas                          |
+|---------------------|----------------------|-------------------------------------|
+| Login - Success     | POST /api/login      | Lyckad inloggning, token skapas     |
+| Login - Fail        | POST /api/login      | Misslyckad inloggning (saknar lösenord) |
+| Get Users           | GET /api/users?page=2| Användardata hämtas korrekt         |
+| Create User         | POST /api/users      | Ny användare skapas                 |
+| Delete User         | DELETE /api/users/2  | Användare raderas korrekt           |
 
-## 🔗 Extra: CI/CD-integration
-Detta projekt kan enkelt kopplas till GitHub Actions eller Jenkins för att köra API-tester automatiskt vid kodändringar.
+## 📈 Resultat
 
-## 📁 Struktur
+Exempel på output via CLI:
+
 ```
-├── TestSvit.postman_collection.json
-├── Testmiljö.postman_environment.json
-└── README.md
+→ Login - Success
+  ✓ Status 200
+  ✓ Token är en sträng
 
+→ Login - Fail
+  ✓ Status 400
+  ✓ Felmeddelande: "Missing password"
+```
+
+## 📚 Lärdomar
+
+Detta projekt förbättrade min praktiska förståelse för:
+- API-design och teststrategier
+- Automatisering av tester med Newman
+- Felhantering och testdrivna testscenarier
+- Förberedelse för CI/CD-integrering
+
+## 🧩 Möjlig utökning
+
+- Lägga till CI/CD via GitHub Actions
+- Använda data-driven testing (JSON/datafiler)
+- Lägg till testsuite för andra API-miljöer (t.ex. auth, e-handel, osv.)
 
