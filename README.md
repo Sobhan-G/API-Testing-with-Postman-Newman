@@ -1,7 +1,4 @@
 # API Testing with Postman & Newman
-![Newman Tests](https://github.com/Sobhan-G/API-Testing-with-Postman-Newman/actions/workflows/newman-api-tests.yml/badge.svg)
-
-![Newman Tests](https://github.com/Sobhan-G/API-Testing-with-Postman-Newman/actions/workflows/newman-api-tests.yml/badge.svg)
 
 Detta projekt innehåller en uppsättning automatiserade API-tester för ett publikt REST API på [reqres.in](https://reqres.in). Tester är skapade med Postman och kan köras både manuellt i Postman eller automatiserat via Newman – en CLI-testrunner.
 
