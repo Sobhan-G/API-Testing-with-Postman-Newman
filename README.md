@@ -1,17 +1,4 @@
-Grymt! Här kommer ett förslag på ett **sjätte projekt** du kan skapa för att visa bredd, teknisk förståelse och praktisk QA-kompetens – något som verkligen imponerar på arbetsgivare.
-
----
-
-### 💡 **Projektidé: "API Testing with Postman & Newman"**
-
-> **Syfte:** Visa din kompetens inom API-testning, automatisering och hur tester kan köras i CI/CD-liknande flöde.
-
----
-
-### 📁 **README.md (för projektet)**
-
-```markdown
-# API Testing with Postman & Newman
+ API Testing with Postman & Newman
 
 Detta projekt innehåller automatiserade tester av ett REST API med hjälp av Postman och testrunnern Newman. Projektet simulerar autentisering, dataskapande och felscenarier.
 
