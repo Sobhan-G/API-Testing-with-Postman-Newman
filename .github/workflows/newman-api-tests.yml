@@ -23,7 +23,4 @@ jobs:
       run: npm install -g newman
 
     - name: Run Postman tests
-      run: |
-        newman run collections/Sobhan-QA-Demo.postman_collection.json \
-          -e environments/reqres-environment.postman_environment.json \
-          -r cli
+     run: newman run "QA Demo.postman_collection.json" -r cli
