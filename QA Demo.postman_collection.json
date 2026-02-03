@@ -18,7 +18,9 @@
 							"    pm.expect(pm.response.json().token).to.be.a('string');",
 							"});"
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
 					}
 				}
 			],
@@ -28,6 +30,11 @@
 					{
 						"key": "Content-Type",
 						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0",
+						"type": "text"
 					}
 				],
 				"body": {
@@ -61,7 +68,9 @@
 							"    pm.expect(pm.response.json().error).to.include(\"Missing password\");",
 							"});"
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
 					}
 				}
 			],
@@ -71,6 +80,11 @@
 					{
 						"key": "Content-Type",
 						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0",
+						"type": "text"
 					}
 				],
 				"body": {
@@ -104,13 +118,21 @@
 							"    pm.expect(pm.response.json().data).to.be.an('array');",
 							"});"
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
 					}
 				}
 			],
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "https://reqres.in/api/users?page=2",
 					"protocol": "https",
@@ -156,6 +178,11 @@
 					{
 						"key": "Content-Type",
 						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0",
+						"type": "text"
 					}
 				],
 				"body": {
@@ -188,13 +215,21 @@
 							"    pm.response.to.have.status(204);",
 							"});"
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
 					}
 				}
 			],
 			"request": {
 				"method": "DELETE",
-				"header": [],
+				"header": [
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "https://reqres.in/api/users/2",
 					"protocol": "https",
