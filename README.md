@@ -1,29 +1,25 @@
 # API Testing with Postman & Newman
 
-Detta projekt innehåller en uppsättning automatiserade API-tester för ett publikt REST API på [reqres.in](https://reqres.in). Tester är skapade med Postman och kan köras både manuellt i Postman eller automatiserat via Newman – en CLI-testrunner.
+This project contains a suite of automated API tests for the public REST API at [reqres.in](https://reqres.in). The tests are created in Postman and can be executed manually within Postman or automated via Newman – a CLI-based test runner.
 
-## 🎯 Syfte
+## 🎯 Purpose
+To demonstrate proficiency in API testing, error handling, and automation within the QA field. The project simulates real-world user flows such as authentication, data retrieval, resource creation, and deletion.
 
-Att visa förståelse för API-testning, felhantering och automatisering inom test/QA. Projektet simulerar verkliga användarflöden såsom inloggning, datahämtning, dataskapande och borttagning av resurser.
+## 🚀 Features
+- ✅ **Login:** Validation for successful and failed (missing password) attempts.
+- 👥 **User Management:** Fetching user lists and validating data structure.
+- ➕ **Resource Creation:** Adding new users to the system.
+- 🗑️ **Resource Deletion:** Verifying the correct removal of users.
+- 🔄 **Validations:** Checking HTTP status codes, JSON response bodies, and error messages.
 
-## 🚀 Funktioner
+## 🧰 Tools Used
+- **Postman:** Test development and documentation.
+- **Newman:** Command-line execution for automation.
+- **JavaScript:** Scripting for test assertions.
+- **reqres.in:** The hosted REST API used for testing.
 
-- ✅ Inloggning (med och utan lösenord)
-- 👥 Hämta användarlista
-- ➕ Skapa ny användare
-- 🗑️ Ta bort användare
-- 🔄 Validering av HTTP-statuskoder, JSON-respons och felhantering
-
-## 🧰 Använda verktyg
-
-- [Postman](https://www.postman.com/)
-- [Newman](https://www.npmjs.com/package/newman)
-- JavaScript (för testskript)
-- reqres.in (mock API)
-
-## 📦 Projektstruktur
-
-```
+## 📦 Project Structure
+```text
 API-Testing-with-Postman-Newman/
 ├── README.md
 ├── collections/
@@ -31,74 +27,66 @@ API-Testing-with-Postman-Newman/
 ├── environments/
 │   └── reqres-environment.postman_environment.json
 └── reports/
-    └── (kan läggas till via Newman CLI)
-```
+    └── (generated via Newman CLI)
 
-## 🛠️ Kom igång
+🛠️ Getting Started
 
-### 1. Klona projektet
+1. Clone the project
 
-```bash
-git clone https://github.com/Sobhan-G/API-Testing-with-Postman-Newman.git
+bash
+git clone [https://github.com/Sobhan-G/API-Testing-with-Postman-Newman.git](https://github.com/Sobhan-G/API-Testing-with-Postman-Newman.git)
 cd API-Testing-with-Postman-Newman
-```
 
-### 2. Installera Newman
+2. Install Newman
 
-```bash
+ash
 npm install -g newman
-```
 
-### 3. Kör testsviten
 
-```bash
+3. Run the test suite
+
 newman run collections/Sobhan-QA-Demo.postman_collection.json \
   -e environments/reqres-environment.postman_environment.json
-```
 
-### 4. Skapa HTML-rapport (valfritt)
 
-```bash
+4. Generate HTML report (optional)
 newman run collections/Sobhan-QA-Demo.postman_collection.json \
   -e environments/reqres-environment.postman_environment.json \
   -r cli,html --reporter-html-export reports/test-report.html
-```
 
-## 🧪 Testfall
+Test Name,Endpoint,Description
 
-| Testnamn            | Endpoint             | Vad testas                          |
-|---------------------|----------------------|-------------------------------------|
-| Login - Success     | POST /api/login      | Lyckad inloggning, token skapas     |
-| Login - Fail        | POST /api/login      | Misslyckad inloggning (saknar lösenord) |
-| Get Users           | GET /api/users?page=2| Användardata hämtas korrekt         |
-| Create User         | POST /api/users      | Ny användare skapas                 |
-| Delete User         | DELETE /api/users/2  | Användare raderas korrekt           |
+Login - Success,POST /api/login,"Successful login, verifies token creation."
+Login - Fail,POST /api/login,Failed login attempt (missing password).
+Get Users,GET /api/users?page=2,Ensures user data is retrieved correctly.
+Create User,POST /api/users,Validates new user creation.
+Delete User,DELETE /api/users/2,Confirms user deletion.
 
-## 📈 Resultat
+📈 Results
+Example of CLI output:
 
-Exempel på output via CLI:
-
-```
 → Login - Success
   ✓ Status 200
-  ✓ Token är en sträng
+  ✓ Token is a string
 
 → Login - Fail
   ✓ Status 400
-  ✓ Felmeddelande: "Missing password"
-```
+  ✓ Error message: "Missing password"
 
-## 📚 Lärdomar
+📚 Key Learnings
+This project has enhanced my practical understanding of:
 
-Detta projekt förbättrade min praktiska förståelse för:
-- API-design och teststrategier
-- Automatisering av tester med Newman
-- Felhantering och testdrivna testscenarier
-- Förberedelse för CI/CD-integrering
+API design and testing strategies.
 
-## 🧩 Möjlig utökning
+Automating tests using Newman.
 
-- Lägga till CI/CD via GitHub Actions
-- Använda data-driven testing (JSON/datafiler)
-- Lägg till testsuite för andra API-miljöer (t.ex. auth, e-handel, osv.)
+Error handling and test-driven scenarios.
 
+Preparing for CI/CD integration.
+
+🧩 Future Enhancements
+Integrate CI/CD via GitHub Actions.
+
+Implement Data-Driven Testing (using JSON/CSV data files).
+
+Expand the suite to cover other API environments (e.g., Auth, E-commerce).
